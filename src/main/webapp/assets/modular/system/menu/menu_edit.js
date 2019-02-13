@@ -8,22 +8,50 @@ var MenuInfoDlg = {
     }
 };
 
-layui.use(['layer', 'form', 'admin', 'laydate', 'ax'], function () {
+var permissionIcon;
+
+layui.use(['layer','iconPicker', 'form', 'admin', 'laydate', 'ax'], function () {
     var $ = layui.jquery;
     var $ax = layui.ax;
     var form = layui.form;
     var admin = layui.admin;
     var laydate = layui.laydate;
     var layer = layui.layer;
+    var iconPicker = layui.iconPicker;
 
     // 让当前iframe弹层高度适应
     admin.iframeAuto();
-
+    
+    iconPicker.render({
+        // 选择器，推荐使用input
+        elem: '#icon',
+        // 数据类型：fontClass/unicode，推荐使用fontClass
+        type: 'fontClass',
+        // 是否开启搜索：true/false
+        search: true,
+        // 是否开启分页
+        page: true,
+        // 每页显示数量，默认12
+        limit: 12,
+        // 点击回调
+        click: function (data) {
+            console.log(data.icon);
+            permissionIcon = data.icon;
+        }
+    });
+    
     //获取菜单信息
     var ajax = new $ax(Feng.ctxPath + "/menu/getMenuInfo?menuId=" + Feng.getUrlParam("menuId"));
     var result = ajax.start();
     form.val('menuForm', result.data);
-
+    
+    /**
+     * 选中图标 （常用于更新时默认选中图标）
+     * @param filter lay-filter
+     * @param iconName 图标名称，自动识别fontClass/unicode
+     */
+    iconPicker.checkIcon('iconPicker', result.data["icon"]);
+    
     // 点击父级菜单
     $('#pcodeName').click(function () {
         var formName = encodeURIComponent("parent.MenuInfoDlg.data.pcodeName");
@@ -44,6 +72,7 @@ layui.use(['layer', 'form', 'admin', 'laydate', 'ax'], function () {
 
     // 表单提交事件
     form.on('submit(btnSubmit)', function (data) {
+    	data.field.icon = permissionIcon;
         var ajax = new $ax(Feng.ctxPath + "/menu/edit", function (data) {
             Feng.success("修改成功！");
 

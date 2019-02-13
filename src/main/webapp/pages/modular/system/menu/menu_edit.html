@@ -34,15 +34,22 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">排序</label>
-        <div class="layui-input-block">
-            <input name="sort" placeholder="请输入排序" type="text" class="layui-input"/>
+        <!-- 
+			<div class="layui-input-block">
+				<input name="icon" placeholder="请输入图标" type="text" class="layui-input"/>
+			</div>
+		 -->
+		<div  id="pIcon" class="layui-form-item">
+            <label for="" class="layui-form-label">选择图标</label>
+            <div class="layui-input-block">
+                <input type="text" id="icon" lay-filter="iconPicker" class="layui-input">
+            </div>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">图标</label>
+        <label class="layui-form-label">排序</label>
         <div class="layui-input-block">
-            <input name="icon" placeholder="请输入图标" type="text" class="layui-input"/>
+            <input name="sort" placeholder="请输入排序" type="text" class="layui-input"/>
         </div>
     </div>
     <div class="layui-form-item text-right">
