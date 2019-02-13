@@ -659,9 +659,7 @@ html {
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background-image: url(img/ic_loading.gif);
+    background-image: url(img/loading-2.gif);
     background-repeat: no-repeat;
     background-position: center;
 }
