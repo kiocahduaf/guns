@@ -66,37 +66,23 @@
                                class="layui-input">
                     </div>
                 </div>
-                <!--<div class="layui-form-item">-->
-                <!--<label class="layui-form-label"><i class="layui-icon layui-icon-vercode"></i></label>-->
-                <!--<div class="layui-input-block">-->
-                <!--<div class="layui-row inline-block">-->
-                <!--<div class="layui-col-xs7">-->
-                <!--<input name="code" type="text" lay-verify="required" placeholder="验证码"-->
-                <!--class="layui-input">-->
-                <!--</div>-->
-                <!--<div class="layui-col-xs5" style="padding-left: 10px;">-->
-                <!--<img class="login-captcha" src="https://www.oschina.net/action/user/captcha">-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--
-	                <div class="layui-form-item">
-	                    <a href="javascript:;" class="layui-link">帐号注册</a>
-	                    <a href="javascript:;" class="layui-link pull-right">忘记密码？</a>
-	                </div>
-                -->
+                <div class="layui-form-item">
+                <label class="layui-form-label"><i class="layui-icon layui-icon-vercode"></i></label>
+                <div class="layui-input-block">
+                <div class="layui-row inline-block">
+                <div class="layui-col-xs7">
+                <input name="code" type="text" lay-verify="required" placeholder="验证码"
+                class="layui-input">
+                </div>
+                <div class="layui-col-xs5" style="padding-left: 10px;">
+                <img class="login-captcha" src="https://www.oschina.net/action/user/captcha">
+                </div>
+                </div>
+                </div>
+                </div>
                 <div class="layui-form-item">
                     <button lay-filter="login-submit" class="layui-btn layui-btn-fluid" type="submit">登 录</button>
                 </div>
-                <!-- 
-	                <div class="layui-form-item login-other">
-	                    <label>第三方登录</label>
-	                    <a href="javascript:;"><i class="layui-icon layui-icon-login-qq"></i></a>
-	                    <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat"></i></a>
-	                    <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo"></i></a>
-	                </div>
-                 -->
             </form>
         </div>
     </div>
@@ -120,5 +106,17 @@
 </script>
 <script type="text/javascript" src="${ctxPath}/assets/common/layui/layui.all.js"></script>
 <script type="text/javascript" src="${ctxPath}/assets/common/js/common.js"></script>
+<script>
+    layui.use(['layer', 'form'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+
+        // 图形验证码
+        $('.login-captcha').click(function () {
+            this.src = this.src + '?t=' + (new Date).getTime();
+        });
+    });
+</script>
 </body>
 </html>

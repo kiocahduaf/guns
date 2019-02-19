@@ -15,15 +15,15 @@
  */
 package cn.stylefeng.guns.modular.system.warpper;
 
+import java.util.List;
+import java.util.Map;
+
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
 import cn.hutool.core.util.StrUtil;
 import cn.stylefeng.guns.core.common.constant.factory.ConstantFactory;
 import cn.stylefeng.guns.modular.system.entity.Dict;
 import cn.stylefeng.roses.core.base.warpper.BaseControllerWrapper;
-import cn.stylefeng.roses.kernel.model.page.PageResult;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * 字典列表的包装
