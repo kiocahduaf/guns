@@ -35,9 +35,9 @@ public class GunsProperties {
 
     public static final String PREFIX = "guns";
 
-    private Boolean kaptchaOpen = false;
+    private Boolean kaptchaOpen = true;
 
-    private Boolean swaggerOpen = false;
+    private Boolean swaggerOpen = true;
 
     private String fileUploadPath;
 
